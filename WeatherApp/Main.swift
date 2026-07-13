@@ -10,12 +10,20 @@ import SwiftUI
 
 struct Main: View {
     var body: some View {
-        ZStack {
+        ZStack(alignment: .topLeading) {
             LinearGradient(
                 colors: [AppColors.gradientTop,AppColors.gradientBottom],
                 startPoint: .topLeading,
                 endPoint: .bottomTrailing
             ).ignoresSafeArea()
+            
+            VStack(){
+                Text("City Weather").font(.system(size: 22, weight: .bold)).frame(maxWidth: .infinity).foregroundStyle(Color.white).padding(.top, 40)
+                
+                Spacer().frame(height: 20)
+                
+                SearchBox()
+            }.padding(16)
         }
     }
 }
