@@ -18,7 +18,7 @@ struct Main: View {
             ).ignoresSafeArea()
             
             VStack(){
-                Text("City Weather").font(.system(size: 22, weight: .bold)).frame(maxWidth: .infinity).foregroundStyle(Color.white).padding(.top, 40)
+                Text("City Weather").font(.system(size: 22, weight: .bold)).frame(maxWidth: .infinity).foregroundStyle(Color.white).padding(.top, 20)
                 
                 Spacer().frame(height: 20)
                 
