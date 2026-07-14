@@ -23,6 +23,10 @@ struct Main: View {
                 Spacer().frame(height: 20)
                 
                 SearchBox()
+                
+                Spacer().frame(height: 20)
+                
+                WeatherIcon(condition: .sunny)
             }.padding(16)
         }
     }
