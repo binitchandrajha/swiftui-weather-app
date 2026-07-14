@@ -24,10 +24,27 @@ struct Main: View {
                 
                 SearchBox()
                 
-                Spacer().frame(height: 20)
+                Spacer().frame(height: 40)
                 
                 WeatherIcon(condition: .sunny)
-            }.padding(16)
+                
+                Spacer().frame(height: 40)
+                
+                Text("27.1°C").font(.system(size: 40, weight: .medium)).foregroundStyle(Color.white)
+                Spacer().frame(height: 12)
+                Text("Kathmandu").font(.system(size: 18, weight: .medium)).foregroundStyle(Color.white)
+                Spacer().frame(height: 12)
+                Text("Overcast Clouds").font(.system(size: 18, weight: .medium)).foregroundStyle(Color.white)
+                Spacer().frame(height: 36)
+                WeatherDetailRow(icon: "humidity", label: "Humidity", value: "80%")
+                Spacer().frame(height: 10)
+                WeatherDetailRow(icon: "thermometer", label: "Feels like", value: "30.0°C")
+                Spacer().frame(height: 10)
+                WeatherDetailRow(icon: "wind", label: "Wind speed", value: "22.72 km/h")
+                Spacer().frame(height: 10)
+                WeatherDetailRow(icon: "cloud", label: "Condition", value: "Overcast clouds")
+                Spacer().frame(height: 10)
+            }.frame(width: .infinity).padding(16)
         }
     }
 }
