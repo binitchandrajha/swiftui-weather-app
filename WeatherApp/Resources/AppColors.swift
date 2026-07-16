@@ -22,5 +22,10 @@ enum AppColors {
             green: 131.0 / 255.0,
             blue: 242.0 / 255.0
         )
-
+    
+    static let purple = Color(
+            red: 179.0 / 255.0,
+            green: 106.0 / 255.0,
+            blue: 251.0 / 255.0
+        )
 }
