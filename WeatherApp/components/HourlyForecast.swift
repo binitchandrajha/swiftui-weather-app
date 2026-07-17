@@ -21,7 +21,7 @@ struct HourlyForecast: View {
                             VStack(){
                                 Text(items.time).font(.system(size: 20,weight: .medium)).foregroundStyle(Color.white)
                                 Spacer().frame(height: 24)
-                                WeatherIcon(condition: .sunny)
+                                WeatherIcon(condition: .sunny, size: 60)
                                 Spacer().frame(height: 20)
                                 Text("\(items.temperature)°C")
                                     .font(.system(size: 24, weight: .medium))

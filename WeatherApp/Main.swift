@@ -17,6 +17,10 @@ struct Main: View {
                 endPoint: .bottomTrailing
             ).ignoresSafeArea()
             
+            VStack(){
+                
+            }
+            
             ScrollView {
                 VStack(){
                     Text("City Weather").font(.system(size: 22, weight: .bold)).frame(maxWidth: .infinity).foregroundStyle(Color.white).padding(.top, 20)
@@ -48,6 +52,10 @@ struct Main: View {
                     Spacer().frame(height: 30)
                     
                     HourlyForecast()
+                    
+                    Spacer().frame(height: 30)
+                    
+                    WeeklyForecast()
                 }.frame(maxWidth: .infinity).padding(16)
             }
         }

@@ -34,4 +34,49 @@ struct WeatherDummyData {
         HourlyForecastModel(time: "10:00 PM", temperature: 16, weatherCondtion: "Clear"),
         HourlyForecastModel(time: "11:00 PM", temperature: 15, weatherCondtion: "Clear"),
     ]
+    
+    static let weeklyForecasts: [WeeklyForecastModel] = [
+            WeeklyForecastModel(
+                day: "Today",
+                minTemp: "22°",
+                maxTemp: "31°",
+                weatherCondition: "cloud.sun.fill"
+            ),
+            WeeklyForecastModel(
+                day: "Mon",
+                minTemp: "21°",
+                maxTemp: "30°",
+                weatherCondition: "sun.max.fill"
+            ),
+            WeeklyForecastModel(
+                day: "Tue",
+                minTemp: "20°",
+                maxTemp: "28°",
+                weatherCondition: "cloud.rain.fill"
+            ),
+            WeeklyForecastModel(
+                day: "Wed",
+                minTemp: "19°",
+                maxTemp: "27°",
+                weatherCondition: "cloud.bolt.rain.fill"
+            ),
+            WeeklyForecastModel(
+                day: "Thu",
+                minTemp: "22°",
+                maxTemp: "32°",
+                weatherCondition: "sun.max.fill"
+            ),
+            WeeklyForecastModel(
+                day: "Fri",
+                minTemp: "23°",
+                maxTemp: "33°",
+                weatherCondition: "cloud.sun.fill"
+            ),
+            WeeklyForecastModel(
+                day: "Sat",
+                minTemp: "21°",
+                maxTemp: "29°",
+                weatherCondition: "cloud.drizzle.fill"
+            )
+        ]
 }
