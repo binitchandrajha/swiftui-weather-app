@@ -1,0 +1,47 @@
+//
+//  SearchView.swift
+//  WeatherApp
+//
+//  Created by Outcode on 17/07/2026.
+//
+
+import Foundation
+import SwiftUI
+
+struct SearchView: View {
+    let onClick: (CityModel) -> Void
+    var body: some View {
+        VStack(){
+            ScrollView(){
+                LazyVStack(){
+                    ForEach(CityDummyList.cityList) { city in
+                        Button(action: {
+                            onClick(city)
+                        } ){
+                            VStack(){
+                                Text(city.name).foregroundStyle(Color.white).font(.system(size: 20, weight: .semibold))
+                            }.frame(maxWidth: .infinity).padding().background(
+                                LinearGradient(
+                                                colors: [
+                                                    Color(red: 144/255, green: 141/255, blue: 234/255),
+                                                    Color(red: 149/255, green: 142/255, blue: 233/255)
+                                                ],
+                                                startPoint: .topLeading,
+                                                endPoint: .bottomTrailing
+                                            )
+                            ).clipShape(RoundedRectangle(cornerRadius: 16))
+                        }
+                    }
+                }
+            }
+        }.padding()
+    }
+}
+
+#Preview {
+    SearchView(
+        onClick: { city in
+            
+        }
+    )
+}
