@@ -18,44 +18,50 @@ struct Main: View {
             ).ignoresSafeArea()
             
             VStack(){
-                VStack(){
-                    Text("City Weather").font(.system(size: 22, weight: .bold)).frame(maxWidth: .infinity).foregroundStyle(Color.white).padding(.top, 20)
-                    
-                    Spacer().frame(height: 20)
-                    
-                    SearchBox()
-                    
-                    Spacer().frame(height: 40)
-                }
+                Text("City Weather").font(.system(size: 22, weight: .bold)).frame(maxWidth: .infinity).foregroundStyle(Color.white).padding(.top, 20)
                 
-                ScrollView {
-                    VStack(){
-                        WeatherIcon(condition: .sunny)
-                        
-                        Spacer().frame(height: 40)
-                        
-                        Text("27.1°C").font(.system(size: 40, weight: .medium)).foregroundStyle(Color.white)
-                        Spacer().frame(height: 12)
-                        Text("Kathmandu").font(.system(size: 18, weight: .medium)).foregroundStyle(Color.white)
-                        Spacer().frame(height: 12)
-                        Text("Overcast Clouds").font(.system(size: 18, weight: .medium)).foregroundStyle(Color.white)
-                        Spacer().frame(height: 36)
-                        WeatherDetailRow(icon: "humidity", label: "Humidity", value: "80%")
-                        Spacer().frame(height: 10)
-                        WeatherDetailRow(icon: "thermometer", label: "Feels like", value: "30.0°C")
-                        Spacer().frame(height: 10)
-                        WeatherDetailRow(icon: "wind", label: "Wind speed", value: "22.72 km/h")
-                        Spacer().frame(height: 10)
-                        WeatherDetailRow(icon: "cloud", label: "Condition", value: "Overcast clouds")
-                        
-                        Spacer().frame(height: 30)
-                        
-                        HourlyForecast()
-                        
-                        Spacer().frame(height: 30)
-                        
-                        WeeklyForecast()
+                Spacer().frame(height: 20)
+                
+                SearchBox()
+                
+                Spacer().frame(height: 40)
+                
+                ZStack(alignment: .topLeading){
+                    ScrollView {
+                        VStack(){
+                            WeatherIcon(condition: .sunny)
+                            
+                            Spacer().frame(height: 40)
+                            
+                            Text("27.1°C").font(.system(size: 40, weight: .medium)).foregroundStyle(Color.white)
+                            Spacer().frame(height: 12)
+                            Text("Kathmandu").font(.system(size: 18, weight: .medium)).foregroundStyle(Color.white)
+                            Spacer().frame(height: 12)
+                            Text("Overcast Clouds").font(.system(size: 18, weight: .medium)).foregroundStyle(Color.white)
+                            Spacer().frame(height: 36)
+                            WeatherDetailRow(icon: "humidity", label: "Humidity", value: "80%")
+                            Spacer().frame(height: 10)
+                            WeatherDetailRow(icon: "thermometer", label: "Feels like", value: "30.0°C")
+                            Spacer().frame(height: 10)
+                            WeatherDetailRow(icon: "wind", label: "Wind speed", value: "22.72 km/h")
+                            Spacer().frame(height: 10)
+                            WeatherDetailRow(icon: "cloud", label: "Condition", value: "Overcast clouds")
+                            
+                            Spacer().frame(height: 30)
+                            
+                            HourlyForecast()
+                            
+                            Spacer().frame(height: 30)
+                            
+                            WeeklyForecast()
+                        }
                     }
+                    
+                    SearchView(
+                        onClick: { city in
+                            
+                        }
+                    )
                 }
             }.frame(maxWidth: .infinity).padding(16)
         }

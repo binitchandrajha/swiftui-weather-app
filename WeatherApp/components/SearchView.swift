@@ -34,7 +34,7 @@ struct SearchView: View {
                     }
                 }
             }
-        }.padding()
+        }.padding().frame(maxHeight: 350).background(Color.white).shadow(color: .black.opacity(0.3), radius: 10, x: 0, y: 4).cornerRadius(16)
     }
 }
 
