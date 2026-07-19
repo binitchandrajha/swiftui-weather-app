@@ -9,6 +9,8 @@ import Foundation
 import SwiftUI
 
 struct Main: View {
+    @State private var searchLocationText: String = ""
+    @FocusState private var isSearchTextFocused: Bool
     var body: some View {
         ZStack(alignment: .topLeading) {
             LinearGradient(
@@ -22,7 +24,10 @@ struct Main: View {
                 
                 Spacer().frame(height: 20)
                 
-                SearchBox()
+                SearchBox(
+                    searchText: $searchLocationText,
+                    isFocused: $isSearchTextFocused
+                )
                 
                 Spacer().frame(height: 40)
                 
@@ -57,13 +62,17 @@ struct Main: View {
                         }
                     }
                     
-                    SearchView(
-                        onClick: { city in
-                            
-                        }
-                    )
+                    if isSearchTextFocused {
+                        SearchView(
+                            onClick: { city in
+                                
+                            }
+                        )
+                    }
                 }
             }.frame(maxWidth: .infinity).padding(16)
+        }.onTapGesture {
+            isSearchTextFocused = false
         }
     }
 }

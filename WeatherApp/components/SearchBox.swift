@@ -9,16 +9,15 @@ import Foundation
 import SwiftUI
 
 struct SearchBox: View {
-    @State private var searchLocationText: String = ""
+    @Binding var searchText: String
+    var isFocused: FocusState<Bool>.Binding
     var body: some View {
         HStack(){
             HStack(){
                 Image(systemName: "location").font(.system(size: 20))
                 AppInputFeild(
-                    text: $searchLocationText,
-                    onChange: { text in
-                        searchLocationText = text
-                    },
+                    text: $searchText,
+                    isFocused: isFocused,
                     placeholder: "Search Location"
                 )
             }
@@ -29,6 +28,17 @@ struct SearchBox: View {
     }
 }
 
+struct SearchBoxPreivew: View {
+    @State private var searchText: String = ""
+    @FocusState private var isFocused: Bool
+    var body: some View {
+        SearchBox(
+            searchText: $searchText,
+            isFocused: $isFocused
+        )
+    }
+}
+
 #Preview {
-    SearchBox()
+    SearchBoxPreivew()
 }
