@@ -14,8 +14,11 @@ struct SearchView: View {
     var isSearching: Bool = false
     var body: some View {
         VStack(){
-            if cities.isEmpty{
+            if cities.isEmpty && !isSearching{
                 EmptyView()
+            }
+            if isSearching {
+                Loader(loaderText: "Searching...")
             }
             ScrollView(){
                 LazyVStack(){
@@ -48,7 +51,5 @@ struct SearchView: View {
         onClick: { city in
             
         },
-//        cities: CityDummyList.cityList
-        cities: []
     )
 }
