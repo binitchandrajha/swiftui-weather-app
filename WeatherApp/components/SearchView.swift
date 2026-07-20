@@ -10,11 +10,13 @@ import SwiftUI
 
 struct SearchView: View {
     let onClick: (CityModel) -> Void
+    var cities: [CityModel] = []
+    var isSearching: Bool = false
     var body: some View {
         VStack(){
             ScrollView(){
                 LazyVStack(){
-                    ForEach(CityDummyList.cityList) { city in
+                    ForEach(cities) { city in
                         Button(action: {
                             onClick(city)
                         } ){

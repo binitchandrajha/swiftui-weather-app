@@ -11,6 +11,8 @@ import SwiftUI
 struct Main: View {
     @State private var searchLocationText: String = ""
     @FocusState private var isSearchTextFocused: Bool
+    @State private var searchViewModel = SearchViewModel()
+    
     var body: some View {
         ZStack(alignment: .topLeading) {
             LinearGradient(
@@ -66,13 +68,19 @@ struct Main: View {
                         SearchView(
                             onClick: { city in
                                 
-                            }
+                            },
+                            cities: searchViewModel.cities,
+                            isSearching: searchViewModel.isLoading,
                         )
                     }
                 }
             }.frame(maxWidth: .infinity).padding(16)
         }.onTapGesture {
             isSearchTextFocused = false
+        }.onChange(of: searchLocationText) {_, newValue in
+            Task{
+                await searchViewModel.search(query: newValue)
+            }
         }
     }
 }
