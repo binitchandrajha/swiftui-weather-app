@@ -12,6 +12,7 @@ struct Main: View {
     @State private var searchLocationText: String = ""
     @FocusState private var isSearchTextFocused: Bool
     @State private var searchViewModel = SearchViewModel()
+    @State private var searchTask: Task<Void, Never>? = nil
     
     var body: some View {
         ZStack(alignment: .topLeading) {
@@ -78,9 +79,18 @@ struct Main: View {
         }.onTapGesture {
             isSearchTextFocused = false
         }.onChange(of: searchLocationText) {_, newValue in
-            Task{
+            searchTask?.cancel()
+            
+            searchTask = Task{
+                try? await Task.sleep(for: .milliseconds(500))
+                
+                guard !Task.isCancelled else {
+                    return
+                }
+                
                 await searchViewModel.search(query: newValue)
             }
+            
         }
     }
 }

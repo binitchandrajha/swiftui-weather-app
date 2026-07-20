@@ -14,6 +14,9 @@ struct SearchView: View {
     var isSearching: Bool = false
     var body: some View {
         VStack(){
+            if cities.isEmpty{
+                EmptyView()
+            }
             ScrollView(){
                 LazyVStack(){
                     ForEach(cities) { city in
@@ -44,6 +47,8 @@ struct SearchView: View {
     SearchView(
         onClick: { city in
             
-        }
+        },
+//        cities: CityDummyList.cityList
+        cities: []
     )
 }
