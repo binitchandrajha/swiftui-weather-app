@@ -27,7 +27,7 @@ struct SearchView: View {
                             onClick(city)
                         } ){
                             VStack(){
-                                Text(city.name).foregroundStyle(Color.white).font(.system(size: 20, weight: .semibold))
+                                Text("\(city.name) (\(city.countryName))").foregroundStyle(Color.white).font(.system(size: 20, weight: .semibold))
                             }.frame(maxWidth: .infinity).padding().background(
                                 LinearGradient(
                                                 colors: [
@@ -51,5 +51,6 @@ struct SearchView: View {
         onClick: { city in
             
         },
+        cities: CityDummyList.cityList
     )
 }

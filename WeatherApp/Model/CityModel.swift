@@ -14,6 +14,15 @@ struct GeocodingResponse: Codable {
 struct CityModel: Identifiable, Codable {
     let id: Int
     let name: String
+    let countryName: String
     let latitude: Double
     let longitude: Double
+    
+    enum CodingKeys: String, CodingKey {
+        case id
+        case name
+        case countryName = "country"
+        case latitude
+        case longitude
+    }
 }
